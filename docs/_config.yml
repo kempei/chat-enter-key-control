@@ -6,7 +6,7 @@ plugins:
   - jekyll-sitemap
 
 # GitHub Pages settings
-url: "https://[username].github.io"
+url: "https://kempei.github.io"
 baseurl: "/chat-enter-key-control"
 
 # Markdown settings

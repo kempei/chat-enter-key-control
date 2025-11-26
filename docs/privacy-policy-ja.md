@@ -108,7 +108,7 @@ Chat Enter Key Control（以下「本拡張機能」）は、日本語入力時�
 
 本プライバシーポリシーに関するご質問やご意見がある場合は、GitHubリポジトリのIssuesページからお問い合わせください。
 
-GitHub Issues: https://github.com/[username]/chat-enter-key-control/issues
+GitHub Issues: https://github.com/kempei/chat-enter-key-control/issues
 
 ---
 

@@ -108,7 +108,7 @@ This Privacy Policy may be updated as necessary. When changes are made, the "Las
 
 If you have any questions or comments about this Privacy Policy, please contact us through the GitHub repository's Issues page.
 
-GitHub Issues: https://github.com/[username]/chat-enter-key-control/issues
+GitHub Issues: https://github.com/kempei/chat-enter-key-control/issues
 
 ---
 

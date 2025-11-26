@@ -22,8 +22,8 @@ Chrome extension that prevents accidental message sending during Japanese IME in
 
 ## GitHub Repository
 
-[https://github.com/[username]/chat-enter-key-control](https://github.com/[username]/chat-enter-key-control)
+[https://github.com/kempei/chat-enter-key-control](https://github.com/kempei/chat-enter-key-control)
 
 ## Issues and Support
 
-If you encounter any issues or have questions, please visit our [GitHub Issues page](https://github.com/[username]/chat-enter-key-control/issues).
+If you encounter any issues or have questions, please visit our [GitHub Issues page](https://github.com/kempei/chat-enter-key-control/issues).
