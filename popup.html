@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Enter Key Control</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Chat Enter Key Control</h1>
+    </header>
+
+    <!-- 現在のページの状態表示 -->
+    <section class="current-page">
+      <div class="status-indicator" id="statusIndicator">
+        <span class="status-icon" id="statusIcon">●</span>
+        <span class="status-text" id="statusText">読み込み中...</span>
+      </div>
+      <div class="current-url" id="currentUrl" data-full-url="">
+        <!-- URLテキスト -->
+        <span class="url-text"></span>
+        <!-- 展開インジケーター（長いURLの場合のみ表示） -->
+        <span class="url-expand-indicator">▼</span>
+      </div>
+      
+      <!-- 現在のドメインの簡易トグル -->
+      <div class="quick-toggle" id="quickToggleSection" style="display: none;">
+        <button class="btn btn-primary" id="quickToggleBtn">
+          このドメインを有効化
+        </button>
+      </div>
+    </section>
+
+    <!-- 送信キー設定 -->
+    <section class="send-key-config">
+      <h2>送信キー設定</h2>
+      <div class="send-key-description">
+        メッセージを送信するキーを選択してください
+      </div>
+      <div class="send-key-select-wrapper">
+        <select id="sendKeySelect" class="send-key-select">
+          <option value="ctrl">Ctrl + Enter</option>
+          <option value="alt">Alt + Enter</option>
+          <option value="cmd">Cmd + Enter (デフォルト)</option>
+          <option value="opt">Opt + Enter</option>
+          <option value="shift">Shift + Enter</option>
+          <option value="none">Enter のみ</option>
+        </select>
+      </div>
+      <div class="send-key-note">
+        <strong>注意:</strong> 「Enter のみ」を選択した場合でも、IME入力中のEnterキーでは送信されず、IMEの変換処理が優先されます。
+      </div>
+    </section>
+
+    <!-- URLパターンの追加フォーム -->
+    <section class="add-pattern">
+      <h2>URLパターンを追加</h2>
+      <div class="input-group">
+        <input 
+          type="text" 
+          id="patternInput" 
+          placeholder="例: *://chat.example.com/*"
+          class="input-field"
+        />
+        <button class="btn btn-primary" id="addBtn">追加</button>
+      </div>
+      <div class="help-text">
+        <details>
+          <summary>パターンの書き方</summary>
+          <ul>
+            <li><code>*://example.com/*</code> - example.comのすべてのページ</li>
+            <li><code>*://*.example.com/*</code> - すべてのサブドメイン</li>
+            <li><code>https://chat.example.com/*</code> - HTTPSのみ</li>
+            <li><code>&lt;all_urls&gt;</code> - すべてのURL</li>
+          </ul>
+        </details>
+      </div>
+      <div class="error-message" id="errorMessage" style="display: none;"></div>
+    </section>
+
+    <!-- URLパターンリスト -->
+    <section class="patterns-list">
+      <div class="list-header">
+        <h2>登録済みパターン</h2>
+        <div class="list-actions">
+          <button class="btn btn-secondary btn-small" id="exportBtn" title="設定をエクスポート">
+            エクスポート
+          </button>
+          <button class="btn btn-secondary btn-small" id="importBtn" title="設定をインポート">
+            インポート
+          </button>
+        </div>
+      </div>
+      <div id="patternsList" class="patterns-container">
+        <div class="loading">読み込み中...</div>
+      </div>
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <p>登録されているパターンがありません</p>
+        <p class="help-text">上のフォームからURLパターンを追加してください</p>
+      </div>
+    </section>
+
+    <!-- インポート用の隠しファイル入力 -->
+    <input type="file" id="importFileInput" accept=".json" style="display: none;" />
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

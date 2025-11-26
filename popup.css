@@ -1,0 +1,478 @@
+/* Popup styles for Chat Enter Key Control */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 450px;
+  min-height: 300px;
+  max-height: 600px;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-size: 14px;
+  color: #202124;
+  background-color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ヘッダー */
+.header {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+  color: #202124;
+}
+
+h2 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #202124;
+}
+
+/* 現在のページの状態 */
+.current-page {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.status-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.status-icon.active {
+  color: #34a853;
+}
+
+.status-icon.inactive {
+  color: #9aa0a6;
+}
+
+.status-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status-text.active {
+  color: #34a853;
+}
+
+.status-text.inactive {
+  color: #5f6368;
+}
+
+.current-url {
+  font-size: 12px;
+  color: #5f6368;
+  word-break: break-all;
+  margin-bottom: 8px;
+  transition: background-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* クリック可能な状態 */
+.current-url.clickable {
+  cursor: pointer;
+  user-select: none;
+  padding: 4px;
+  margin: -4px;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+/* ホバー時のスタイル（要件: 3.4） */
+.current-url.clickable:hover {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+/* フォーカス時のスタイル（要件: 2.1, 2.2, 3.4） */
+.current-url.clickable:focus {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+  background-color: #e8f0fe;
+}
+
+/* フォーカス表示を強調（キーボードナビゲーション用） */
+.current-url.clickable:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+  background-color: #e8f0fe;
+  box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.1);
+}
+
+/* 省略状態 */
+.current-url.truncated .url-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 展開状態 */
+.current-url.expanded .url-text {
+  word-break: break-all;
+}
+
+/* URLテキスト */
+.url-text {
+  flex: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 展開インジケーター */
+.url-expand-indicator {
+  display: none;
+  flex-shrink: 0;
+  font-size: 10px;
+  color: #1a73e8;
+  transition: transform 0.2s ease-in-out;
+  line-height: 1;
+}
+
+/* 長いURL（クリック可能）の場合のみインジケーターを表示 */
+.current-url.clickable .url-expand-indicator {
+  display: inline-block;
+}
+
+/* 短いURL（クリック不可）の場合はインジケーターを非表示 */
+.current-url:not(.clickable) .url-expand-indicator {
+  display: none;
+}
+
+.quick-toggle {
+  margin-top: 8px;
+}
+
+/* 送信キー設定 */
+.send-key-config {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+}
+
+.send-key-description {
+  font-size: 12px;
+  color: #5f6368;
+  margin-bottom: 12px;
+}
+
+.send-key-select-wrapper {
+  margin-bottom: 12px;
+}
+
+.send-key-select {
+  width: 100%;
+  padding: 10px 12px;
+  background-color: #ffffff;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #202124;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235f6368' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 36px;
+}
+
+.send-key-select:hover {
+  border-color: #1a73e8;
+}
+
+.send-key-select:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+}
+
+.send-key-note {
+  font-size: 11px;
+  color: #5f6368;
+  padding: 8px 12px;
+  background-color: #e8f0fe;
+  border-radius: 4px;
+  line-height: 1.4;
+}
+
+.send-key-note strong {
+  color: #1a73e8;
+}
+
+/* パターン追加フォーム */
+.add-pattern {
+  padding: 16px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.input-field {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  font-size: 14px;
+  font-family: 'Courier New', monospace;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+}
+
+.help-text {
+  font-size: 12px;
+  color: #5f6368;
+  margin-top: 8px;
+}
+
+.help-text details {
+  cursor: pointer;
+}
+
+.help-text summary {
+  user-select: none;
+  padding: 4px 0;
+}
+
+.help-text ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+}
+
+.help-text li {
+  margin: 4px 0;
+}
+
+.help-text code {
+  background-color: #f1f3f4;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+.error-message {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background-color: #fce8e6;
+  color: #c5221f;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* ボタン */
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: #1a73e8;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1765cc;
+}
+
+.btn-secondary {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.btn-secondary:hover {
+  background-color: #e8eaed;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.btn-danger {
+  background-color: #d93025;
+  color: #ffffff;
+}
+
+.btn-danger:hover {
+  background-color: #c5221f;
+}
+
+/* パターンリスト */
+.patterns-list {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+  max-height: 300px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.list-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.patterns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pattern-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  background-color: #ffffff;
+  transition: background-color 0.2s;
+}
+
+.pattern-item:hover {
+  background-color: #f8f9fa;
+}
+
+.pattern-item.disabled {
+  opacity: 0.6;
+}
+
+.pattern-toggle {
+  flex-shrink: 0;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: #dadce0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.toggle-switch.active {
+  background-color: #34a853;
+}
+
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch.active::after {
+  transform: translateX(20px);
+}
+
+.pattern-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.pattern-text {
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #202124;
+  word-break: break-all;
+  margin-bottom: 4px;
+}
+
+.pattern-meta {
+  font-size: 11px;
+  color: #5f6368;
+}
+
+.pattern-actions {
+  flex-shrink: 0;
+}
+
+.btn-icon {
+  padding: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5f6368;
+  font-size: 16px;
+  line-height: 1;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+  background-color: #f1f3f4;
+  color: #202124;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 32px 16px;
+  color: #5f6368;
+}
+
+.empty-state p {
+  margin: 8px 0;
+}
+
+.loading {
+  text-align: center;
+  padding: 16px;
+  color: #5f6368;
+}

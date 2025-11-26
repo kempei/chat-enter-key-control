@@ -1,0 +1,35 @@
+# Node modules
+node_modules/
+
+# Test results
+test-results/
+.last-run.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Build artifacts
+dist/
+build/
+release/*.zip
+
+# Temporary files
+*.tmp
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Playwright
+playwright-report/
+playwright/.cache/

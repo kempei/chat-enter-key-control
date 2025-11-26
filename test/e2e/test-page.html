@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Enter Key Control - Test Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .test-section {
+      margin-bottom: 30px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    textarea, input, .editable {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .editable {
+      background: white;
+      border: 1px solid #ddd;
+    }
+    .output {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 3px;
+      font-family: monospace;
+      white-space: pre-wrap;
+      min-height: 50px;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat Enter Key Control - Test Page</h1>
+  <p>このページは拡張機能のテスト用です。各フィールドでEnterキーの動作を確認してください。</p>
+
+  <div class="test-section">
+    <h2>Textarea</h2>
+    <div class="label">テキストエリア:</div>
+    <textarea id="textarea-field" placeholder="ここに入力してEnterキーを押してください"></textarea>
+    <div class="label">送信イベント:</div>
+    <div id="textarea-output" class="output">イベントなし</div>
+    <button id="textarea-submit">送信ボタン</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Input[type="text"]</h2>
+    <div class="label">テキスト入力:</div>
+    <input type="text" id="input-field" placeholder="ここに入力してEnterキーを押してください">
+    <div class="label">送信イベント:</div>
+    <div id="input-output" class="output">イベントなし</div>
+    <button id="input-submit">送信ボタン</button>
+  </div>
+
+  <div class="test-section">
+    <h2>Contenteditable</h2>
+    <div class="label">編集可能なDiv:</div>
+    <div id="editable-field" class="editable" contenteditable="true" data-placeholder="ここに入力してEnterキーを押してください"></div>
+    <div class="label">送信イベント:</div>
+    <div id="editable-output" class="output">イベントなし</div>
+    <button id="editable-submit">送信ボタン</button>
+  </div>
+
+  <script>
+    // Textareaのイベントハンドラ
+    const textareaField = document.getElementById('textarea-field');
+    const textareaOutput = document.getElementById('textarea-output');
+    const textareaSubmit = document.getElementById('textarea-submit');
+
+    textareaField.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.defaultPrevented) {
+        const modifier = e.ctrlKey || e.altKey || e.metaKey ? 'あり' : 'なし';
+        textareaOutput.textContent = `Enterキー押下（修飾キー: ${modifier}、isComposing: ${e.isComposing}）\n時刻: ${new Date().toLocaleTimeString()}`;
+      }
+    });
+
+    textareaSubmit.addEventListener('click', () => {
+      textareaOutput.textContent = `送信ボタンクリック\n時刻: ${new Date().toLocaleTimeString()}`;
+    });
+
+    // Inputのイベントハンドラ
+    const inputField = document.getElementById('input-field');
+    const inputOutput = document.getElementById('input-output');
+    const inputSubmit = document.getElementById('input-submit');
+
+    inputField.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.defaultPrevented) {
+        const modifier = e.ctrlKey || e.altKey || e.metaKey ? 'あり' : 'なし';
+        inputOutput.textContent = `Enterキー押下（修飾キー: ${modifier}、isComposing: ${e.isComposing}）\n時刻: ${new Date().toLocaleTimeString()}`;
+      }
+    });
+
+    inputSubmit.addEventListener('click', () => {
+      inputOutput.textContent = `送信ボタンクリック\n時刻: ${new Date().toLocaleTimeString()}`;
+    });
+
+    // Contenteditableのイベントハンドラ
+    const editableField = document.getElementById('editable-field');
+    const editableOutput = document.getElementById('editable-output');
+    const editableSubmit = document.getElementById('editable-submit');
+
+    editableField.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.defaultPrevented) {
+        const modifier = e.ctrlKey || e.altKey || e.metaKey ? 'あり' : 'なし';
+        editableOutput.textContent = `Enterキー押下（修飾キー: ${modifier}、isComposing: ${e.isComposing}）\n時刻: ${new Date().toLocaleTimeString()}`;
+      }
+    });
+
+    editableSubmit.addEventListener('click', () => {
+      editableOutput.textContent = `送信ボタンクリック\n時刻: ${new Date().toLocaleTimeString()}`;
+    });
+  </script>
+</body>
+</html>

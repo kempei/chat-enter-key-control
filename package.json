@@ -1,0 +1,20 @@
+{
+  "name": "chat-enter-key-control",
+  "version": "1.0.0",
+  "description": "Chrome extension to control Enter key behavior in chat applications",
+  "type": "module",
+  "scripts": {
+    "test": "vitest --run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/chrome": "^0.0.254",
+    "fast-check": "^3.15.0",
+    "jsdom": "^27.0.1",
+    "sharp": "^0.34.5",
+    "vitest": "^1.0.0"
+  }
+}
