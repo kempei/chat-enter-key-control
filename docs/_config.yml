@@ -1,0 +1,47 @@
+title: Chat Enter Key Control
+description: Chrome extension that prevents accidental message sending during Japanese IME input
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# GitHub Pages settings
+url: "https://[username].github.io"
+baseurl: "/chat-enter-key-control"
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .sass-cache
+  - .jekyll-cache
+  - .jekyll-metadata
