@@ -1,99 +1,59 @@
-# プライバシーポリシーURL設定テンプレート
+# プライバシーポリシーの公開URL
 
-このファイルには、Chrome Web Storeの審査申請時に使用するプライバシーポリシーのURLテンプレートが含まれています。
-
-## 必要な情報
-
-以下の情報を実際の値に置き換えてください：
-
-- `[username]`: GitHubのユーザー名またはオーガニゼーション名
-- `[repository]`: GitHubリポジトリ名（例: `chat-enter-key-control`）
-
-## オプション1: GitHub Pages（推奨）
+## GitHub Pagesでの公開URL
 
 ### 日本語版
 ```
-https://[username].github.io/[repository]/privacy-policy-ja
+https://kempei.github.io/chat-enter-key-control/privacy-policy-ja
 ```
 
 ### 英語版
 ```
-https://[username].github.io/[repository]/privacy-policy-en
-```
-
-### manifest.jsonへの追加（オプション）
-
-manifest.jsonに以下のフィールドを追加できます（オプション）：
-
-```json
-{
-  "homepage_url": "https://github.com/[username]/[repository]"
-}
-```
-
-## オプション2: GitHubリポジトリの直接リンク
-
-### GitHub上での表示（推奨）
-
-#### 日本語版
-```
-https://github.com/[username]/[repository]/blob/main/store-assets/privacy-policy/privacy-policy-ja.md
-```
-
-#### 英語版
-```
-https://github.com/[username]/[repository]/blob/main/store-assets/privacy-policy/privacy-policy-en.md
-```
-
-### Raw形式（代替案）
-
-#### 日本語版
-```
-https://raw.githubusercontent.com/[username]/[repository]/main/store-assets/privacy-policy/privacy-policy-ja.md
-```
-
-#### 英語版
-```
-https://raw.githubusercontent.com/[username]/[repository]/main/store-assets/privacy-policy/privacy-policy-en.md
+https://kempei.github.io/chat-enter-key-control/privacy-policy-en
 ```
 
 ## Chrome Web Store Developer Dashboardでの設定
 
-1. Chrome Web Store Developer Dashboardにログイン
-2. 拡張機能の編集ページを開く
-3. 「プライバシー」セクションに移動
-4. 「プライバシーポリシー」フィールドに上記のURLを入力
-5. 日本語版と英語版の両方のURLを提供することを推奨
+Chrome Web Store Developer Dashboardの「プライバシー設定」セクションで、以下のURLを入力してください：
 
-## 確認事項
+**プライバシーポリシーURL**: `https://kempei.github.io/chat-enter-key-control/privacy-policy-ja`
 
-プライバシーポリシーのURLを設定する前に、以下を確認してください：
+## URL検証チェックリスト
 
-- [ ] GitHubリポジトリが公開（Public）になっている
-- [ ] プライバシーポリシーファイルが正しいパスに配置されている
-- [ ] URLがHTTPSでアクセス可能である
-- [ ] ブラウザでURLを開いて内容が表示されることを確認
-- [ ] シークレットモードでもアクセスできることを確認
+- [x] HTTPSプロトコルを使用
+- [x] 公開アクセス可能（ログイン不要）
+- [x] 日本語版と英語版の両方を用意
+- [x] Jekyll front matterでHTML形式に最適化
+- [x] GitHub Pagesで自動ホスティング
 
-## 例
+## 追加情報
 
-実際のリポジトリが `https://github.com/example-user/chat-enter-key-control` の場合：
+- **ドキュメントインデックス**: https://kempei.github.io/chat-enter-key-control/
+- **GitHubリポジトリ**: https://github.com/kempei/chat-enter-key-control
+- **Issues**: https://github.com/kempei/chat-enter-key-control/issues
 
-### GitHub Pages
-- 日本語版: `https://example-user.github.io/chat-enter-key-control/privacy-policy-ja`
-- 英語版: `https://example-user.github.io/chat-enter-key-control/privacy-policy-en`
+## 注意事項
 
-### GitHubリポジトリの直接リンク
-- 日本語版: `https://github.com/example-user/chat-enter-key-control/blob/main/store-assets/privacy-policy/privacy-policy-ja.md`
-- 英語版: `https://github.com/example-user/chat-enter-key-control/blob/main/store-assets/privacy-policy/privacy-policy-en.md`
+1. GitHub Pagesの反映には数分かかる場合があります
+2. リポジトリが公開（Public）である必要があります
+3. docsディレクトリからの公開設定が必要です（Settings > Pages > Source: main branch /docs folder）
+4. Jekyll設定により、.mdファイルは自動的に.htmlとしてアクセス可能になります
 
-## 次のステップ
+## トラブルシューティング
 
-1. GitHubリポジトリを作成（まだ作成していない場合）
-2. 公開方法を選択（GitHub Pagesまたは直接リンク）
-3. URLを実際の値に置き換え
-4. ブラウザでURLにアクセスして確認
-5. Chrome Web Store Developer Dashboardに入力
+### URLにアクセスできない場合
 
-詳細な手順は `PUBLISHING.md` を参照してください。
+1. GitHubリポジトリの設定を確認
+   - Settings > Pages
+   - Source: Deploy from a branch
+   - Branch: main / docs
 
+2. 数分待ってから再度アクセス
+
+3. ブラウザのキャッシュをクリア
+
+### Chrome Web Storeの審査で問題が発生した場合
+
+1. URLが正しくHTTPSでアクセス可能か確認
+2. プライバシーポリシーの内容がChrome Web Storeの要件を満たしているか確認
+3. 必要に応じて審査担当者に追加情報を提供

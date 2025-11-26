@@ -4,6 +4,13 @@
 
 タスク2「プライバシーポリシーの公開設定」が完了しました。
 
+### GitHub Pages設定完了 ✅
+
+- **リポジトリ**: https://github.com/kempei/chat-enter-key-control
+- **公開URL（日本語版）**: https://kempei.github.io/chat-enter-key-control/privacy-policy-ja
+- **公開URL（英語版）**: https://kempei.github.io/chat-enter-key-control/privacy-policy-en
+- **設定完了日**: 2024年11月26日
+
 ### 作成されたドキュメント
 
 1. **PUBLISHING.md** - プライバシーポリシーの公開方法の詳細ガイド

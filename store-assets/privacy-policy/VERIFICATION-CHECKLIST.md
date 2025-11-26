@@ -1,164 +1,127 @@
-# プライバシーポリシーURL検証チェックリスト
+# プライバシーポリシー公開設定の検証チェックリスト
 
-このチェックリストを使用して、プライバシーポリシーのURLが正しく公開され、Chrome Web Storeの審査要件を満たしていることを確認してください。
+## 完了済みタスク
 
-## 公開前のチェック
+- [x] プライバシーポリシーファイルをdocs/ディレクトリにコピー
+- [x] Jekyll front matterを追加してHTML表示を最適化
+- [x] _config.ymlファイルを作成してJekyll設定を構成
+- [x] index.mdファイルを作成してナビゲーションを提供
+- [x] 実際のGitHubユーザー名とリポジトリ名に更新
+- [x] GitHubリポジトリにコミット・プッシュ
 
-### GitHubリポジトリの設定
+## 次に必要な手動設定
 
-- [ ] GitHubリポジトリが作成されている
-- [ ] リポジトリが公開（Public）に設定されている
-- [ ] プライバシーポリシーファイルがリポジトリにプッシュされている
-- [ ] ファイルパスが正しい（`store-assets/privacy-policy/privacy-policy-ja.md` と `privacy-policy-en.md`）
+### GitHub Pages設定（要手動実行）
 
-### GitHub Pagesの設定（GitHub Pagesを使用する場合）
+1. **GitHubリポジトリにアクセス**
+   - https://github.com/kempei/chat-enter-key-control
 
-- [ ] GitHub Pagesが有効化されている
-- [ ] ソースが正しく設定されている（mainブランチ、/docsフォルダ）
-- [ ] プライバシーポリシーファイルが`docs/`ディレクトリにコピーされている
-- [ ] GitHub Pagesのビルドが完了している（数分かかる場合がある）
+2. **Settings > Pagesに移動**
+   - リポジトリの「Settings」タブをクリック
+   - 左サイドバーの「Pages」をクリック
 
-## URLアクセスの確認
+3. **ソース設定**
+   - Source: "Deploy from a branch"を選択
+   - Branch: "main"を選択
+   - Folder: "/docs"を選択
+   - 「Save」をクリック
 
-### 基本的なアクセス確認
+4. **公開URL確認**
+   - 設定後、数分待つ
+   - 「Your site is published at https://kempei.github.io/chat-enter-key-control/」のメッセージを確認
 
-- [ ] ブラウザでプライバシーポリシーのURL（日本語版）を開ける
-- [ ] ブラウザでプライバシーポリシーのURL（英語版）を開ける
-- [ ] 内容が正しく表示されている
-- [ ] 文字化けがない
-- [ ] レイアウトが崩れていない
+## URL検証テスト
 
-### HTTPSプロトコルの確認
+### 手動確認項目
 
-- [ ] URLが`https://`で始まっている
-- [ ] ブラウザのアドレスバーに鍵マークが表示されている
-- [ ] SSL証明書のエラーが表示されない
-- [ ] 混合コンテンツの警告が表示されない
+1. **日本語版プライバシーポリシー**
+   - URL: https://kempei.github.io/chat-enter-key-control/privacy-policy-ja
+   - [ ] HTTPSでアクセス可能
+   - [ ] ログイン不要でアクセス可能
+   - [ ] 内容が正しく表示される
+   - [ ] HTML形式で見やすく表示される
 
-### アクセス権限の確認
+2. **英語版プライバシーポリシー**
+   - URL: https://kempei.github.io/chat-enter-key-control/privacy-policy-en
+   - [ ] HTTPSでアクセス可能
+   - [ ] ログイン不要でアクセス可能
+   - [ ] 内容が正しく表示される
+   - [ ] HTML形式で見やすく表示される
 
-- [ ] ログインなしでアクセスできる
-- [ ] シークレットモード（プライベートブラウジング）でアクセスできる
-- [ ] 異なるブラウザ（Chrome、Firefox、Safariなど）でアクセスできる
-- [ ] 異なるデバイス（PC、スマートフォンなど）でアクセスできる
+3. **インデックスページ**
+   - URL: https://kempei.github.io/chat-enter-key-control/
+   - [ ] HTTPSでアクセス可能
+   - [ ] プライバシーポリシーへのリンクが機能する
+   - [ ] ナビゲーションが正しく表示される
 
-## 内容の確認
+### ブラウザテスト
 
-### 必須項目の確認
+- [ ] Chrome
+- [ ] Firefox
+- [ ] Safari
+- [ ] Edge
 
-- [ ] データ収集の説明が含まれている
-- [ ] データ保存場所と方法が説明されている
-- [ ] データの使用目的が明記されている
-- [ ] 第三者へのデータ共有の有無が明記されている
-- [ ] ユーザーの権利（データの削除、アクセス）が説明されている
-- [ ] 連絡先情報が含まれている
+### シークレットモードテスト
 
-### Chrome Web Store要件の確認
+- [ ] Chrome（シークレットモード）
+- [ ] Firefox（プライベートブラウジング）
 
-- [ ] プライバシーポリシーがChrome Web Storeの要件を満たしている
-- [ ] 収集するデータの種類が明確に記載されている
-- [ ] 権限の使用理由が説明されている
-- [ ] 外部サーバーへのデータ送信の有無が明記されている
+## Chrome Web Store設定準備
 
-### 多言語対応の確認
+### 使用するURL
 
-- [ ] 日本語版と英語版の両方が用意されている
-- [ ] 両方のバージョンの内容が対応している
-- [ ] 翻訳が正確である
-- [ ] 専門用語が適切に翻訳されている
+**プライバシーポリシーURL（日本語版）**:
+```
+https://kempei.github.io/chat-enter-key-control/privacy-policy-ja
+```
 
-## manifest.jsonの確認（オプション）
+**プライバシーポリシーURL（英語版）**:
+```
+https://kempei.github.io/chat-enter-key-control/privacy-policy-en
+```
 
-- [ ] `homepage_url`フィールドが追加されている（オプション）
-- [ ] URLが正しい
-- [ ] manifest.jsonの構文エラーがない
+**サポートURL**:
+```
+https://github.com/kempei/chat-enter-key-control/issues
+```
 
-## Chrome Web Store Developer Dashboardでの設定
+**ホームページURL**:
+```
+https://github.com/kempei/chat-enter-key-control
+```
 
-### プライバシーポリシーURLの入力
+## 完了確認
 
-- [ ] Chrome Web Store Developer Dashboardにログインしている
-- [ ] 拡張機能の編集ページを開いている
-- [ ] 「プライバシー」セクションに移動している
-- [ ] プライバシーポリシーのURLを入力している
-- [ ] URLが正しいことを確認している
+- [ ] GitHub Pages設定完了
+- [ ] 全URLの動作確認完了
+- [ ] Chrome Web Store用URL準備完了
+- [ ] タスク2完了マーク
 
-### プライバシー設定の入力
+## 注意事項
 
-- [ ] データ収集の説明を入力している
-- [ ] 収集するデータの種類を選択している
-- [ ] データの使用目的を説明している
-- [ ] 第三者へのデータ共有がないことを明記している
-- [ ] 権限の使用理由を説明している
-
-## 最終確認
-
-### URLの動作確認
-
-- [ ] プライバシーポリシーのURLをコピーしてブラウザで開く
-- [ ] 内容が最新であることを確認
-- [ ] リンクが切れていないことを確認
-- [ ] 404エラーが表示されないことを確認
-
-### 審査前の最終チェック
-
-- [ ] すべてのチェック項目が完了している
-- [ ] プライバシーポリシーのURLが正しく公開されている
-- [ ] HTTPSでアクセス可能である
-- [ ] Chrome Web Store Developer Dashboardに入力されている
-- [ ] 審査申請の準備が整っている
+1. **GitHub Pages反映時間**: 設定後、反映まで最大10分程度かかる場合があります
+2. **リポジトリ公開設定**: リポジトリがPublicである必要があります
+3. **ファイル更新**: プライバシーポリシーを更新した場合は、docs/内のファイルも更新が必要です
+4. **Jekyll処理**: .mdファイルは自動的に.htmlとしてアクセス可能になります（拡張子なしでもアクセス可能）
 
 ## トラブルシューティング
 
+### GitHub Pagesが有効にならない場合
+
+1. リポジトリがPublicになっているか確認
+2. docsディレクトリにファイルが存在するか確認
+3. _config.ymlファイルが正しく配置されているか確認
+4. 数分待ってから再度確認
+
 ### URLにアクセスできない場合
 
-1. リポジトリが公開（Public）になっているか確認
-2. ファイルパスが正しいか確認
-3. GitHub Pagesのビルドが完了しているか確認（数分待つ）
-4. URLのスペルミスがないか確認
+1. GitHub Pagesの設定を再確認
+2. ブラウザのキャッシュをクリア
+3. 別のブラウザで試行
+4. シークレットモードで試行
 
-### 404エラーが表示される場合
+### Chrome Web Store審査で問題が発生した場合
 
-1. ファイルが正しいパスに配置されているか確認
-2. ファイル名が正しいか確認（大文字小文字に注意）
-3. ブランチ名が正しいか確認（mainまたはmaster）
-4. GitHub Pagesの設定が正しいか確認
-
-### HTTPSでアクセスできない場合
-
-1. GitHub PagesまたはGitHubリポジトリを使用しているか確認
-2. カスタムドメインを使用している場合、SSL証明書が設定されているか確認
-3. 混合コンテンツ（HTTPとHTTPSの混在）がないか確認
-
-### Chrome Web Storeの審査で却下された場合
-
-1. プライバシーポリシーのURLが正しいか再確認
-2. 内容がChrome Web Storeの要件を満たしているか確認
-3. 審査担当者からのフィードバックを確認
-4. 必要に応じて内容を修正して再申請
-
-## 参考情報
-
-### 公開URLの例
-
-**GitHub Pages:**
-- 日本語版: `https://[username].github.io/[repository]/privacy-policy-ja`
-- 英語版: `https://[username].github.io/[repository]/privacy-policy-en`
-
-**GitHubリポジトリの直接リンク:**
-- 日本語版: `https://github.com/[username]/[repository]/blob/main/store-assets/privacy-policy/privacy-policy-ja.md`
-- 英語版: `https://github.com/[username]/[repository]/blob/main/store-assets/privacy-policy/privacy-policy-en.md`
-
-### 関連ドキュメント
-
-- `PUBLISHING.md`: プライバシーポリシーの公開方法の詳細
-- `URL-TEMPLATE.md`: URLテンプレートと設定例
-- Chrome Web Store Developer Program Policies: https://developer.chrome.com/docs/webstore/program-policies/
-- Chrome Web Store Privacy Requirements: https://developer.chrome.com/docs/webstore/user_data/
-
-## 完了
-
-すべてのチェック項目が完了したら、このチェックリストを保存し、Chrome Web Storeの審査申請に進んでください。
-
-審査中に追加情報を求められた場合は、このチェックリストを参照して、すべての要件が満たされていることを確認してください。
-
+1. プライバシーポリシーの内容を再確認
+2. URLが正しくHTTPSでアクセス可能か確認
+3. 必要に応じて審査担当者に詳細を説明
